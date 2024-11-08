@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using S5A01_BlazorClient_v0.Interop;
 using S5A01_BlazorClient_v0.Services;
 
 namespace S5A01_BlazorClient_v0
@@ -13,6 +14,7 @@ namespace S5A01_BlazorClient_v0
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<TestInterop>();
 
             builder.Services.AddScoped<IDataService, MongoDBDataService>();
 
